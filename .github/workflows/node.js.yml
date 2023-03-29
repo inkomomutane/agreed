@@ -1,14 +1,11 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+name: 🎉 Deploy
 
 on:
   push:
     branches: [ "master" ]
 jobs:
   build:
-
+  
     runs-on: ubuntu-latest
 
     strategy:
@@ -26,3 +23,11 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: dist
+          # server-dir: agreed/
