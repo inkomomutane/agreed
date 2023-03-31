@@ -17,6 +17,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+
     return Inertia::render('home/HomePage');
 });
 Route::get('/services', function () {
