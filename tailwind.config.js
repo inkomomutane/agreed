@@ -12,7 +12,32 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: {"50":"#eff6ff","100":"#dbeafe","200":"#bfdbfe","300":"#93c5fd","400":"#60a5fa","500":"#3b82f6","600":"#2563eb","700":"#1d4ed8","800":"#1e40af","900":"#1e3a8a"}
+                primary: {
+                    "50": "#ffffff",
+                    "100": "#ffede5",
+                    "150": "#ffdbcc",
+                    "200": "#ffc9b2",
+                    "250": "#ffb799",
+                    "300": "#ffa67f",
+                    "350": "#ff9466",
+                    "400": "#ff824c",
+                    "450": "#ff7032",
+                    "500": "#ff5e19",
+                    "550": "#ff4d00",
+                    "600": "#e54500",
+                    "650": "#cc3d00",
+                    "700": "#b23500",
+                    "750": "#992e00",
+                    "800": "#7f2600",
+                    "850": "#661e00",
+                    "900": "#4c1700",
+                    "950": "#330f00",
+                    "1000": "#190700",
+                    "1050": "#000000"
+
+                    }
+
+
             }
         },
         fontFamily: {
@@ -58,5 +83,5 @@ module.exports = {
         }
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [require('@tailwindcss/forms'),require('@tailwindcss/typography'),],
 };

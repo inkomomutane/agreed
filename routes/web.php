@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Statamic\Facades\GlobalSet;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +18,21 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-
-    return Inertia::render('home/HomePage');
-});
+Route::get('/',HomePageController::class)->name('welcome');
 Route::get('/services', function () {
     return Inertia::render('services/ServicesPage');
+})->name('services');
+
+Route::get('/about', function () {
+    return Inertia::render('about/AboutUsPage');
+})->name('about');
+
+Route::get('/contact', function () {
+    return Inertia::render('contact/ContactUsPage');
+})->name('contact');
+
+
+
+Route::get('/tinker',function(){
+   return GlobalSet::all();
 });
