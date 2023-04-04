@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use Illuminate\Http\Request;
 use Statamic\Eloquent\Entries\Entry;
 use  Statamic\Facades\Collection;
 
@@ -8,8 +9,20 @@ class Services{
 
 public static function services(){
     return (object) Entry::query()->whereCollection('services')->get()->map(function($entry){
-        return $entry->fileData();
+        $finalEntry = $entry->fileData();
+        $finalEntry['slug'] = $entry->slug;
+        return $finalEntry;
     });
+}
+
+public static function service(string $slug){
+    return (object) Entry::query()->whereCollection('services')
+    ->where('slug',$slug)
+    ->get()->map(function($entry){
+        $finalEntry = $entry->fileData();
+        $finalEntry['slug'] = $entry->slug;
+        return $finalEntry;
+    })->first();
 }
 
 public static function partiners()
@@ -18,6 +31,14 @@ public static function partiners()
     ->get()->map(function($entry){
         return $entry->fileData();
     });
+}
+
+public static function testimonials()
+{
+    return (object) Entry::query()->whereCollection('testimonials')
+    ->get()->map(function($entry){
+        return $entry->fileData();
+    })->sort();
 }
 
 }

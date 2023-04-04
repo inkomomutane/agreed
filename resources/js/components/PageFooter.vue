@@ -1,4 +1,7 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { Link } from '@inertiajs/vue3';
+
+</script>
 <template>
     <footer>
         <div class="bg-gray-950 py-10 px-6 md:py-20 dark:bg-gray-200">
@@ -7,7 +10,7 @@
                     <div class="col-span-2 mb-6 md:mb-0">
                         <a :href="route('welcome')" class="flex items-center">
                             <img
-                            :src="`storage/${$page.props.logo.agreed_logo}`"
+                            :src="`${route('welcome')}/storage/${$page.props.logo.agreed_logo}`"
                                 class="mr-3 h-8 bg-white"
                                 alt="Agreed Logistics"
                             />
@@ -102,13 +105,13 @@
                                 class="dark:text-gray-600 text-gray-400 text-sm"
                             >
                                 <li class="mb-4">
-                                    <a href="#" class="hover:underline"
-                                        >Privacy Policy</a
+                                    <Link :href="route('policy')" class="hover:underline"
+                                        >Privacy Policy</Link
                                     >
                                 </li>
                                 <li>
-                                    <a href="#" class="hover:underline"
-                                        >Terms &amp; Conditions</a
+                                    <Link :href="route('terms')" class="hover:underline"
+                                        >Terms &amp; Conditions</Link
                                     >
                                 </li>
                             </ul>

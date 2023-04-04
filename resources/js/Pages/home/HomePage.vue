@@ -8,12 +8,12 @@ import PageHero from "../../components/PageHero.vue";
 import HomeAboutUs from "./partials/HomeAboutUs.vue";
 import HomePartners from "./partials/HomePartners.vue";
 import HomeServices from "./partials/HomeServices.vue";
-import HomeTeam from "./partials/HomeTeam.vue";
 import HomeTestmunial from "./partials/HomeTestmunial.vue";
 import HomePageInterface from "@/types/index";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 import { Service } from "@/types/service";
+import { Testimonial } from "@/types/testimonials";
 const cldInstance = new Cloudinary({ cloud: { cloudName: "dkvjdiyer" } });
 
 const props = defineProps({
@@ -26,6 +26,9 @@ const props = defineProps({
     },
     partiners:{
         type: Array as PropType<Partiner[]>
+    },
+    testimonials:{
+        type: Array as PropType<Testimonial[]>
     }
 
 });
@@ -97,8 +100,7 @@ const fetchedImage = cldInstance.image("agreed/cover_spaqsi").toURL();
 
         <HomeServices :services="services ?? []" />
         <HomePartners  :partiners="partiners ?? []" />
-        <HomeTeam />
-        <HomeTestmunial />
+        <HomeTestmunial :testimonials="testimonials ?? []" />
         <Subscrib />
         <PageFooter />
     </div>

@@ -14,7 +14,7 @@ const linkCss="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover
     <nav class="bg-white px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <Link href="/" class="flex items-center" >
-                <img :src="`storage/${$page.props.logo.agreed_logo}`" class="mr-3 h-6 sm:h-9" alt="Agreed Logistics" />
+                <img :src="`${route('welcome')}/storage/${$page.props.logo.agreed_logo}`" class="mr-3 h-6 sm:h-9" alt="Agreed Logistics" />
             </Link>
             <div class="flex items-center lg:order-2">
                <button data-collapse-toggle="mobile-menu-2" @click="changeMenuStatus" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
@@ -26,17 +26,24 @@ const linkCss="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover
             <div :class="!showMenu?'hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1' :'justify-between items-center w-full lg:flex lg:w-auto lg:order-1'" id="mobile-menu-2">
                 <ul class="flex flex-col mt-4 font-medium capitalize lg:flex-row lg:space-x-8 lg:mt-0 ">
                     <li>
-                        <Link href="/" :class="route().current('welcome') ? activeLinkCss : linkCss"> Home </Link>
+                        <Link :href="route('welcome')" :class="route().current('welcome') ? activeLinkCss : linkCss"> Home </Link>
                     </li>
 
                     <li>
-                        <Link href="/services" :class="route().current('services') ? activeLinkCss : linkCss">Services</Link>
+                        <Link :href="route('services')" :class="route().current('services') || route().current('service') ? activeLinkCss : linkCss">Services</Link>
                     </li>
                     <li>
-                        <Link href="/about" :class="route().current('about') ? activeLinkCss : linkCss">About us</Link>
+                        <Link :href="route('about')" :class="route().current('about') ? activeLinkCss : linkCss">About us</Link>
                     </li>
                     <li>
-                        <Link href="/contact" :class="route().current('contact') ? activeLinkCss : linkCss">Contact us</Link>
+                        <Link :href="route('contact')" :class="route().current('contact') ? activeLinkCss : linkCss">Contact us</Link>
+                    </li>
+
+                    <li v-show="route().current('terms')">
+                        <Link :href="route('terms')" :class="route().current('terms') ? activeLinkCss : linkCss">Terms & conditions</Link>
+                    </li>
+                    <li v-show="route().current('policy')">
+                        <Link :href="route('policy')" :class="route().current('policy') ? activeLinkCss : linkCss">Privacy Policy</Link>
                     </li>
                 </ul>
             </div>

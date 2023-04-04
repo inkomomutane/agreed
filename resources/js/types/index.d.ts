@@ -1,14 +1,35 @@
-import { Service } from "./service";
+import { Service, ServiceSection } from "./service";
 
-export default interface HomePageInterface {
+
+export interface PageInterface {
     hero_title : string,
     page_title : string,
     hero_subtitle:string,
     hero_backround_image:Array,
+}
+
+
+
+
+export default interface HomePageInterface extends PageInterface {
     short_about_us_title:string,
     short_about_us_content:string,
     short_about_us_image:Array,
     services:Service[]
+}
+
+export interface ServicePageInterface extends PageInterface{
+    services:Service[]
+}
+
+export interface TermsPageInterface extends PageInterface{
+    sections:ServiceSection[]
+    terms:string
+}
+
+export interface PrivacyPageInterface extends PageInterface{
+    sections:ServiceSection[]
+    privacy:string
 }
 
 

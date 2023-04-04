@@ -2,7 +2,8 @@
 
 defineProps({
     imageCoverUrl:String,
-    imageCoverAlt:String
+    imageCoverAlt:String,
+    noOpacity:Boolean
 })
 
 </script>
@@ -15,7 +16,7 @@ defineProps({
       </div>
     </div>
     <!-- Overlay -->
-    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-70"></div>
+    <div :class="`absolute top-0 left-0 w-full h-full ${ noOpacity ? 'bg-slate-600 opacity-25' : 'bg-black opacity-70'   }`"></div>
     <!-- Hero content -->
     <div class="relative container mx-auto px-4 py-16 min-h-fit">
       <section class="bg-transparent">

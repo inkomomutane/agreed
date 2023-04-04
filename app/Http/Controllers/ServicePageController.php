@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Services;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Statamic\Facades\GlobalSet;
 
-class HomePageController extends Controller
+class ServicePageController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -16,12 +17,10 @@ class HomePageController extends Controller
      */
     public function __invoke()
     {
-       $data = GlobalSet::findByHandle('home_page')->inDefaultSite()->fileData();
-        return Inertia::render('home/HomePage',[
-            'homePage' => (object) $data,
+        $data = GlobalSet::findByHandle('service_page')->inDefaultSite()->fileData();
+        return Inertia::render('services/ServicesPage',[
+            'servicePage' => (object) $data,
             'services' => Services::services(),
-            'partiners' => Services::partiners(),
-            'testimonials' => Services::testimonials()
         ]);
     }
 }

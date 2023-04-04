@@ -13,7 +13,7 @@ module.exports = {
         extend: {
             colors: {
                 primary: {
-                    "50": "#ffffff",
+                    "50": "#fdf3ee",
                     "100": "#ffede5",
                     "150": "#ffdbcc",
                     "200": "#ffc9b2",
@@ -36,9 +36,14 @@ module.exports = {
                     "1050": "#000000"
 
                     }
-
-
-            }
+            },
+            typography: {
+                DEFAULT: {
+                  css: {
+                    maxWidth: '100ch', // add required value here
+                  }
+                }
+              }
         },
         fontFamily: {
             'body': [
