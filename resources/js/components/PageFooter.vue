@@ -32,17 +32,17 @@ import { Link } from '@inertiajs/vue3';
                             </h2>
                             <ul class="dark:text-white text-gray-400 text-sm">
                                 <li class="mb-4">
-                                    <a
-                                        href="https://flowbite.com"
+                                    <Link
+                                        :href="route('welcome')"
                                         class="hover:underline"
-                                        >Agreed Logistics</a
+                                        >Home</Link
                                     >
                                 </li>
-                                <li>
-                                    <a
-                                        href="https://tailwindcss.com/"
+                                <li class="mb-4">
+                                    <Link
+                                        :href="route('services')"
                                         class="hover:underline"
-                                        >Tailwind CSS</a
+                                        >Services</Link
                                     >
                                 </li>
                             </ul>
@@ -51,21 +51,21 @@ import { Link } from '@inertiajs/vue3';
                             <h2
                                 class="mb-6 text-sm font-semibold dark:text-gray-900 capitalize text-white"
                             >
-                                Resources
+                                Company
                             </h2>
                             <ul class="dark:text-white text-gray-400 text-sm">
                                 <li class="mb-4">
-                                    <a
-                                        href="https://flowbite.com"
+                                    <Link
+                                        :href="route('about')"
                                         class="hover:underline"
-                                        >Agreed Logistics</a
+                                        >About us</Link
                                     >
                                 </li>
                                 <li>
-                                    <a
-                                        href="https://tailwindcss.com/"
+                                    <Link
+                                        :href="route('contact')"
                                         class="hover:underline"
-                                        >Tailwind CSS</a
+                                        >Contact us</Link
                                     >
                                 </li>
                             </ul>
@@ -81,16 +81,16 @@ import { Link } from '@inertiajs/vue3';
                             >
                                 <li class="mb-4">
                                     <a
-                                        href="https://github.com/themesberg/flowbite"
+                                        href="https://fb.me/agreed"
                                         class="hover:underline"
-                                        >Github</a
+                                        >Facebook</a
                                     >
                                 </li>
                                 <li>
                                     <a
-                                        href="https://discord.gg/4eeurUVvTy"
+                                        href="https://instagram.com/agreed"
                                         class="hover:underline"
-                                        >Discord</a
+                                        >Instagram</a
                                     >
                                 </li>
                             </ul>
