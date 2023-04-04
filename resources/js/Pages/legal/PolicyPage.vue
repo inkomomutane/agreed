@@ -49,9 +49,10 @@ const props = defineProps({
         </PageHero>
 
         <section class="mx-20 py-16"   >
-            <div class="py-8 bg-white px-16">
+            <div class="py-8 bg-white shadow-md px-16">
                 <article class="
                 prose
+                text-justify
                 prose-p:py-1
                 max-w-screen-2xl
                 prose-headings:text-start

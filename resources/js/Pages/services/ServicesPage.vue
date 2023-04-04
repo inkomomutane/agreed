@@ -54,11 +54,12 @@ console.log(props.servicePage);
             </template>
         </PageHero>
 
-        <section class="bg-gray-100 dark:bg-gray-900 py-6">
+        <section class="bg-gray-100 text-justify dark:bg-gray-900 py-6">
             <div
                 class="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-3 2xl:grid-cols-4 2xl:gap-4 py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6"
             >
-                <div
+
+ <div
                     v-for="service in services"
                     v-bind:key="service.id"
                     class="px-1 md:px-4 my-4"
@@ -67,7 +68,7 @@ console.log(props.servicePage);
                         class="w-full md:max-w-sm self-center md:mx-automy-10 dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-200"
                     >
                         <div
-                            class="bg-white hover:shadow-gray-300 hover:border-slate-700 hover:transition hover:duration-700 hover:ease-in-out hover:translate-x-6 hover:-translate-y-6"
+                            class="bg-white text-justify hover:shadow-gray-300 hover:border-slate-700 hover:transition hover:duration-700 hover:ease-in-out hover:translate-x-6 hover:-translate-y-6"
                         >
                             <Link
                                 :href="route('service', {slug: service.slug})"
@@ -89,7 +90,7 @@ console.log(props.servicePage);
                                     >
                                         {{ service.title }}
                                     </h5>
-                                    <p>
+                                    <p class="">
                                         {{ service.description }}
                                     </p>
                                 </Link>

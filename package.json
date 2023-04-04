@@ -2,7 +2,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "clean" : "vite clean"
     },
     "dependencies": {
         "@cloudinary/url-gen": "^1.9.2",

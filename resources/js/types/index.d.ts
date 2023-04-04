@@ -27,6 +27,11 @@ export interface TermsPageInterface extends PageInterface{
     terms:string
 }
 
+export interface AboutUsPage extends PageInterface{
+    sections:ServiceSection[]
+    content:string
+}
+
 export interface PrivacyPageInterface extends PageInterface{
     sections:ServiceSection[]
     privacy:string

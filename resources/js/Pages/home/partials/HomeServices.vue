@@ -51,7 +51,7 @@
                                 :alt="service.title"
                             />
                         </Link>
-                        <div class="p-5">
+                        <div class="p-5 text-justify">
                             <Link :href="route('service',{slug:service.slug})">
                                 <h5
                                     class="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white"

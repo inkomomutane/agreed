@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProfileController;
@@ -26,9 +27,7 @@ Route::get('/',HomePageController::class)->name('welcome');
 Route::get('/services',ServicePageController::class)->name('services');
 Route::get('/service/{slug}',SingleServicePageController::class)->name('service');
 
-Route::get('/about-us', function () {
-    return Inertia::render('about/AboutUsPage');
-})->name('about');
+Route::get('/about-us',AboutUsController::class)->name('about');
 
 Route::get('/contact-us', function () {
     return Inertia::render('contact/ContactUsPage');
