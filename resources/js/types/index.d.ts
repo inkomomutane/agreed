@@ -55,7 +55,10 @@ export interface Copyright{
     short_description:string
     facebook:string,
     instagram:string,
-    website:string
+    website:string,
+    contact:string,
+    email:string,
+    location:string
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {

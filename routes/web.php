@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProfileController;
@@ -36,6 +37,4 @@ Route::get('/contact-us', function () {
 Route::get('/terms-and-conditions',TermsAndConditionsController::class)->name('terms');
 Route::get('/privacy-policy',PolicyController::class)->name('policy');
 
-Route::get('/tinker',function(){
-   return GlobalSet::all();
-});
+Route::post('/contact.submit',ContactUsFormController::class)->name('contact.submit');

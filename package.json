@@ -3,10 +3,12 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "clean" : "vite clean"
+        "clean": "vite clean"
     },
     "dependencies": {
         "@cloudinary/url-gen": "^1.9.2",
+        "@flasher/flasher": "^1.2.4",
+        "@types/swiper": "^6.0.0",
         "flowbite": "^1.6.4",
         "flowbite-vue": "^0.0.10",
         "swiper": "^9.2.0"
@@ -17,7 +19,7 @@
         "@tailwindcss/forms": "^0.5.3",
         "@tailwindcss/typography": "^0.5.9",
         "@types/glidejs__glide": "^3.6.1",
-        "@types/node": "^18.14.2",
+        "@types/node": "^18.15.11",
         "@vitejs/plugin-vue": "^4.0.0",
         "@vue/eslint-config-prettier": "^7.1.0",
         "@vue/eslint-config-typescript": "^11.0.2",

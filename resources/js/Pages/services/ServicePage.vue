@@ -89,8 +89,6 @@ const props = defineProps({
                         </div>
                     </section>
             </template>
-
-        <Subscrib />
         <PageFooterVue />
     </div>
 </template>

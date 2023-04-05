@@ -41,7 +41,8 @@ class HandleInertiaRequests extends Middleware
                 ]);
             },
             'copyright' =>  GlobalSet::findByHandle('copyright')->inDefaultSite()->fileData(),
-            'logo' =>  GlobalSet::findByHandle('logo')->inDefaultSite()->fileData()
+            'logo' =>  GlobalSet::findByHandle('logo')->inDefaultSite()->fileData(),
+            'messages' => flash()->render([], 'array'),
         ]);
     }
 }

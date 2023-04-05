@@ -100,7 +100,6 @@ console.log(props.servicePage);
                 </div>
             </div>
         </section>
-        <Subscrib />
         <PageFooterVue />
     </div>
 </template>

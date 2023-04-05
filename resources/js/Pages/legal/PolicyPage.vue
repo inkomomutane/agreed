@@ -67,7 +67,6 @@ const props = defineProps({
             </div>
         </section>
 
-        <Subscrib />
         <PageFooter />
     </div>
 </template>

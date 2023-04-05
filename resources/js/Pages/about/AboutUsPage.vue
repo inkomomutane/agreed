@@ -96,6 +96,5 @@ console.log(props);
 
     </div>
     <HomeTestmunial :testimonials="testimonials ?? []" />
-        <Subscrib />
         <PageFooter/>
 </template>

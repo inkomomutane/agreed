@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from "vue";
-import { Head } from "@inertiajs/vue3";
-import Subscrib from "@/components/Subscrib.vue";
+import { Head,Link } from "@inertiajs/vue3";
 import PageFooter from "../../components/PageFooter.vue";
 import PageHeader from "../../components/PageHeader.vue";
 import PageHero from "../../components/PageHero.vue";
@@ -68,8 +67,8 @@ const fetchedImage = cldInstance.image("agreed/cover_spaqsi").toURL();
                     <div
                         class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4"
                     >
-                        <a
-                            href="#"
+                        <Link
+                            :href="route('contact')"
                             class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white bg-primary-500 hover:bg-primary-550 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
                         >
                             Get A Quote
@@ -85,7 +84,7 @@ const fetchedImage = cldInstance.image("agreed/cover_spaqsi").toURL();
                                     clip-rule="evenodd"
                                 ></path>
                             </svg>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </template>
@@ -101,7 +100,6 @@ const fetchedImage = cldInstance.image("agreed/cover_spaqsi").toURL();
         <HomeServices :services="services ?? []" />
         <HomePartners  :partiners="partiners ?? []" />
         <HomeTestmunial :testimonials="testimonials ?? []" />
-        <Subscrib />
         <PageFooter />
     </div>
 </template>
