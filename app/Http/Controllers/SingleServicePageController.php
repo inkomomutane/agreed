@@ -17,9 +17,12 @@ class SingleServicePageController extends Controller
     public function __invoke(string $slug)
     {
         $data = Services::service($slug);
-        if(is_null($data)) abort(404);
-        return Inertia::render('services/ServicePage',[
-            'service' => $data
+        if (is_null($data)) {
+            abort(404);
+        }
+
+        return Inertia::render('services/ServicePage', [
+            'service' => $data,
         ]);
     }
 }

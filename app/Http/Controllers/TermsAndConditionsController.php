@@ -15,11 +15,11 @@ class TermsAndConditionsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __invoke()
-
     {
         $data = (object) GlobalSet::findByHandle('terms_conditions')->inDefaultSite()->fileData();
-        return Inertia::render('legal/TermsPage',[
-            'terms' => $data
+
+        return Inertia::render('legal/TermsPage', [
+            'terms' => $data,
         ]);
     }
 }

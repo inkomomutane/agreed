@@ -18,7 +18,8 @@ class ServicePageController extends Controller
     public function __invoke()
     {
         $data = GlobalSet::findByHandle('service_page')->inDefaultSite()->fileData();
-        return Inertia::render('services/ServicesPage',[
+
+        return Inertia::render('services/ServicesPage', [
             'servicePage' => (object) $data,
             'services' => Services::services(),
         ]);

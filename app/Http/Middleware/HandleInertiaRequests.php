@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Noty;
 use Statamic\Globals\GlobalSet;
 use Tightenco\Ziggy\Ziggy;
 
@@ -40,9 +41,8 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
-            'copyright' =>  GlobalSet::findByHandle('copyright')->inDefaultSite()->fileData(),
-            'logo' =>  GlobalSet::findByHandle('logo')->inDefaultSite()->fileData(),
-            'messages' => flash()->render([], 'array'),
+            'copyright' => GlobalSet::findByHandle('copyright')->inDefaultSite()->fileData(),
+            'logo' => GlobalSet::findByHandle('logo')->inDefaultSite()->fileData(),
         ]);
     }
 }

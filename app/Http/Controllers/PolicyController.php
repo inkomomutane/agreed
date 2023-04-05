@@ -11,15 +11,14 @@ class PolicyController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
     {
         $data = (object) GlobalSet::findByHandle('privacy_policy')->inDefaultSite()->fileData();
-        
-        return Inertia::render('legal/PolicyPage',[
-            'policy' => $data
+
+        return Inertia::render('legal/PolicyPage', [
+            'policy' => $data,
         ]);
     }
 }

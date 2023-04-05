@@ -4204,8 +4204,8 @@
          * @static 
          */ 
         public static function lock($name, $seconds = 0, $owner = null)
-        {            //Method inherited from \Illuminate\Cache\FileStore         
-                        /** @var \Statamic\Extensions\FileStore $instance */
+        {
+                        /** @var \Illuminate\Cache\NullStore $instance */
                         return $instance->lock($name, $seconds, $owner);
         }
                     /**
@@ -4217,8 +4217,8 @@
          * @static 
          */ 
         public static function restoreLock($name, $owner)
-        {            //Method inherited from \Illuminate\Cache\FileStore         
-                        /** @var \Statamic\Extensions\FileStore $instance */
+        {
+                        /** @var \Illuminate\Cache\NullStore $instance */
                         return $instance->restoreLock($name, $owner);
         }
                     /**
@@ -4228,31 +4228,9 @@
          * @static 
          */ 
         public static function flush()
-        {            //Method inherited from \Illuminate\Cache\FileStore         
-                        /** @var \Statamic\Extensions\FileStore $instance */
+        {
+                        /** @var \Illuminate\Cache\NullStore $instance */
                         return $instance->flush();
-        }
-                    /**
-         * Get the Filesystem instance.
-         *
-         * @return \Illuminate\Filesystem\Filesystem 
-         * @static 
-         */ 
-        public static function getFilesystem()
-        {            //Method inherited from \Illuminate\Cache\FileStore         
-                        /** @var \Statamic\Extensions\FileStore $instance */
-                        return $instance->getFilesystem();
-        }
-                    /**
-         * Get the working directory of the cache.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getDirectory()
-        {            //Method inherited from \Illuminate\Cache\FileStore         
-                        /** @var \Statamic\Extensions\FileStore $instance */
-                        return $instance->getDirectory();
         }
                     /**
          * Get the cache key prefix.
@@ -4261,8 +4239,8 @@
          * @static 
          */ 
         public static function getPrefix()
-        {            //Method inherited from \Illuminate\Cache\FileStore         
-                        /** @var \Statamic\Extensions\FileStore $instance */
+        {
+                        /** @var \Illuminate\Cache\NullStore $instance */
                         return $instance->getPrefix();
         }
          
@@ -17922,6 +17900,178 @@
      
 }
 
+    namespace Flasher\Laravel\Facade { 
+            /**
+     * 
+     *
+     * @method static NotificationBuilder addSuccess(string $message, array $options = array())
+     * @method static NotificationBuilder addError(string $message, array $options = array())
+     * @method static NotificationBuilder addWarning(string $message, array $options = array())
+     * @method static NotificationBuilder addInfo(string $message, array $options = array())
+     * @method static NotificationBuilder addFlash(NotificationInterface|string $type, string $message = null, array $options = array())
+     * @method static NotificationBuilder flash(StampInterface[] $stamps = array())
+     * @method static NotificationBuilder type(string $type, string $message = null, array $options = array())
+     * @method static NotificationBuilder message(string $message)
+     * @method static NotificationBuilder options(array $options, bool $merge = true)
+     * @method static NotificationBuilder option(string $name, $value)
+     * @method static NotificationBuilder success(string $message = null, array $options = array())
+     * @method static NotificationBuilder error(string $message = null, array $options = array())
+     * @method static NotificationBuilder info(string $message = null, array $options = array())
+     * @method static NotificationBuilder warning(string $message = null, array $options = array())
+     * @method static NotificationBuilder priority(int $priority)
+     * @method static NotificationBuilder hops(int $amount)
+     * @method static NotificationBuilder keep()
+     * @method static NotificationBuilder delay(int $delay)
+     * @method static NotificationBuilder now()
+     * @method static NotificationBuilder with(StampInterface[] $stamps = array())
+     * @method static NotificationBuilder withStamp(StampInterface $stamp)
+     * @method static NotificationBuilder handler(string $handler)
+     * @method static Envelope            getEnvelope()
+     */ 
+        class Flasher {
+                    /**
+         * Get a driver instance.
+         *
+         * @param string|null $alias
+         * @return \Flasher\Prime\Factory\NotificationFactoryInterface 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function create($alias = null)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->create($alias);
+        }
+                    /**
+         * Get a driver instance.
+         *
+         * @param string|null $alias
+         * @return \Flasher\Prime\Factory\NotificationFactoryInterface 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function using($alias)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->using($alias);
+        }
+                    /**
+         * 
+         *
+         * @param \Flasher\Prime\array<string,  mixed> $criteria
+         * @param string $presenter
+         * @param \Flasher\Prime\array<string,  mixed> $context
+         * @return mixed 
+         * @phpstan-return ($presenter is 'html' ? string : mixed)
+         * @static 
+         */ 
+        public static function render($criteria = [], $presenter = 'html', $context = [])
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->render($criteria, $presenter, $context);
+        }
+                    /**
+         * Register a custom driver creator.
+         *
+         * @param string $alias
+         * @param callable|\Flasher\Prime\Factory\NotificationFactoryInterface $factory
+         * @return static 
+         * @static 
+         */ 
+        public static function addFactory($alias, $factory)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->addFactory($alias, $factory);
+        }
+         
+    }
+            /**
+     * 
+     *
+     * @method static NotificationBuilder addSuccess(string $message, array $options = array())
+     * @method static NotificationBuilder addError(string $message, array $options = array())
+     * @method static NotificationBuilder addWarning(string $message, array $options = array())
+     * @method static NotificationBuilder addInfo(string $message, array $options = array())
+     * @method static NotificationBuilder addFlash(NotificationInterface|string $type, string $message = null, array $options = array())
+     * @method static NotificationBuilder flash(StampInterface[] $stamps = array())
+     * @method static NotificationBuilder type(string $type, string $message = null, array $options = array())
+     * @method static NotificationBuilder message(string $message)
+     * @method static NotificationBuilder options(array $options, bool $merge = true)
+     * @method static NotificationBuilder option(string $name, $value)
+     * @method static NotificationBuilder success(string $message = null, array $options = array())
+     * @method static NotificationBuilder error(string $message = null, array $options = array())
+     * @method static NotificationBuilder info(string $message = null, array $options = array())
+     * @method static NotificationBuilder warning(string $message = null, array $options = array())
+     * @method static NotificationBuilder priority(int $priority)
+     * @method static NotificationBuilder hops(int $amount)
+     * @method static NotificationBuilder keep()
+     * @method static NotificationBuilder delay(int $delay)
+     * @method static NotificationBuilder now()
+     * @method static NotificationBuilder with(StampInterface[] $stamps = array())
+     * @method static NotificationBuilder withStamp(StampInterface $stamp)
+     * @method static NotificationBuilder handler(string $handler)
+     * @method static Envelope            getEnvelope()
+     */ 
+        class Flasher {
+                    /**
+         * Get a driver instance.
+         *
+         * @param string|null $alias
+         * @return \Flasher\Prime\Factory\NotificationFactoryInterface 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function create($alias = null)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->create($alias);
+        }
+                    /**
+         * Get a driver instance.
+         *
+         * @param string|null $alias
+         * @return \Flasher\Prime\Factory\NotificationFactoryInterface 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function using($alias)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->using($alias);
+        }
+                    /**
+         * 
+         *
+         * @param \Flasher\Prime\array<string,  mixed> $criteria
+         * @param string $presenter
+         * @param \Flasher\Prime\array<string,  mixed> $context
+         * @return mixed 
+         * @phpstan-return ($presenter is 'html' ? string : mixed)
+         * @static 
+         */ 
+        public static function render($criteria = [], $presenter = 'html', $context = [])
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->render($criteria, $presenter, $context);
+        }
+                    /**
+         * Register a custom driver creator.
+         *
+         * @param string $alias
+         * @param callable|\Flasher\Prime\Factory\NotificationFactoryInterface $factory
+         * @return static 
+         * @static 
+         */ 
+        public static function addFactory($alias, $factory)
+        {
+                        /** @var \Flasher\Prime\Flasher $instance */
+                        return $instance->addFactory($alias, $factory);
+        }
+         
+    }
+     
+}
+
     namespace Rebing\GraphQL\Support\Facades { 
             /**
      * 
@@ -18695,6 +18845,172 @@
         {
                         /** @var \Wilderborn\Partyline\Partyline $instance */
                         $instance->bind($console);
+        }
+         
+    }
+     
+}
+
+    namespace Orangehill\Iseed\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class Iseed {
+                    /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function readStubFile($file)
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->readStubFile($file);
+        }
+                    /**
+         * Generates a seed file.
+         *
+         * @param string $table
+         * @param string $prefix
+         * @param string $suffix
+         * @param string $database
+         * @param int $max
+         * @param string $prerunEvent
+         * @param string $postunEvent
+         * @return bool 
+         * @throws Orangehill\Iseed\TableNotFoundException
+         * @static 
+         */ 
+        public static function generateSeed($table, $prefix = null, $suffix = null, $database = null, $max = 0, $chunkSize = 0, $exclude = null, $prerunEvent = null, $postrunEvent = null, $dumpAuto = true, $indexed = true, $orderBy = null, $direction = 'ASC')
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->generateSeed($table, $prefix, $suffix, $database, $max, $chunkSize, $exclude, $prerunEvent, $postrunEvent, $dumpAuto, $indexed, $orderBy, $direction);
+        }
+                    /**
+         * Get a seed folder path
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getSeedPath()
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->getSeedPath();
+        }
+                    /**
+         * Get the Data
+         *
+         * @param string $table
+         * @return Array 
+         * @static 
+         */ 
+        public static function getData($table, $max, $exclude = null, $orderBy = null, $direction = 'ASC')
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->getData($table, $max, $exclude, $orderBy, $direction);
+        }
+                    /**
+         * Repacks data read from the database
+         *
+         * @param array|object $data
+         * @return array 
+         * @static 
+         */ 
+        public static function repackSeedData($data)
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->repackSeedData($data);
+        }
+                    /**
+         * Checks if a database table exists
+         *
+         * @param string $table
+         * @return boolean 
+         * @static 
+         */ 
+        public static function hasTable($table)
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->hasTable($table);
+        }
+                    /**
+         * Generates a seed class name (also used as a filename)
+         *
+         * @param string $table
+         * @param string $prefix
+         * @param string $suffix
+         * @return string 
+         * @static 
+         */ 
+        public static function generateClassName($table, $prefix = null, $suffix = null)
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->generateClassName($table, $prefix, $suffix);
+        }
+                    /**
+         * Get the path to the stub file.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStubPath()
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->getStubPath();
+        }
+                    /**
+         * Populate the place-holders in the seed stub.
+         *
+         * @param string $class
+         * @param string $stub
+         * @param string $table
+         * @param string $data
+         * @param int $chunkSize
+         * @param string $prerunEvent
+         * @param string $postunEvent
+         * @return string 
+         * @static 
+         */ 
+        public static function populateStub($class, $stub, $table, $data, $chunkSize = null, $prerunEvent = null, $postrunEvent = null, $indexed = true)
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->populateStub($class, $stub, $table, $data, $chunkSize, $prerunEvent, $postrunEvent, $indexed);
+        }
+                    /**
+         * Create the full path name to the seed file.
+         *
+         * @param string $name
+         * @param string $path
+         * @return string 
+         * @static 
+         */ 
+        public static function getPath($name, $path)
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->getPath($name, $path);
+        }
+                    /**
+         * Cleans the iSeed section
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function cleanSection()
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->cleanSection();
+        }
+                    /**
+         * Updates the DatabaseSeeder file's run method (kudoz to: https://github.com/JeffreyWay/Laravel-4-Generators)
+         *
+         * @param string $className
+         * @return bool 
+         * @static 
+         */ 
+        public static function updateDatabaseSeederRunMethod($className)
+        {
+                        /** @var \Orangehill\Iseed\Iseed $instance */
+                        return $instance->updateDatabaseSeederRunMethod($className);
         }
          
     }
@@ -22795,10 +23111,13 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
             class Image extends \Intervention\Image\Facades\Image {}
+            class Flasher extends \Flasher\Laravel\Facade\Flasher {}
+            class Noty extends \Flasher\Laravel\Facade\Flasher {}
             class GraphQL extends \Rebing\GraphQL\Support\Facades\GraphQL {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
             class Statamic extends \Statamic\Statamic {}
             class Partyline extends \Wilderborn\Partyline\Facade {}
+            class Iseed extends \Orangehill\Iseed\Facades\Iseed {}
      
 }
 

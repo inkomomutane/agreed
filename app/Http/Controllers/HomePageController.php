@@ -16,12 +16,13 @@ class HomePageController extends Controller
      */
     public function __invoke()
     {
-       $data = GlobalSet::findByHandle('home_page')->inDefaultSite()->fileData();
-        return Inertia::render('home/HomePage',[
+        $data = GlobalSet::findByHandle('home_page')->inDefaultSite()->fileData();
+
+        return Inertia::render('home/HomePage', [
             'homePage' => (object) $data,
             'services' => Services::services(),
             'partiners' => Services::partiners(),
-            'testimonials' => Services::testimonials()
+            'testimonials' => Services::testimonials(),
         ]);
     }
 }

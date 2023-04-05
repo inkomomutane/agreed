@@ -1,44 +1,46 @@
 <?php
+
 namespace App\Helpers;
 
-use Illuminate\Http\Request;
 use Statamic\Eloquent\Entries\Entry;
-use  Statamic\Facades\Collection;
 
-class Services{
-
-public static function services(){
-    return (object) Entry::query()->whereCollection('services')->get()->map(function($entry){
-        $finalEntry = $entry->fileData();
-        $finalEntry['slug'] = $entry->slug;
-        return $finalEntry;
-    });
-}
-
-public static function service(string $slug){
-    return (object) Entry::query()->whereCollection('services')
-    ->where('slug',$slug)
-    ->get()->map(function($entry){
-        $finalEntry = $entry->fileData();
-        $finalEntry['slug'] = $entry->slug;
-        return $finalEntry;
-    })->first();
-}
-
-public static function partiners()
+class Services
 {
-    return (object) Entry::query()->whereCollection('partiners')
-    ->get()->map(function($entry){
-        return $entry->fileData();
-    });
-}
+    public static function services()
+    {
+        return (object) Entry::query()->whereCollection('services')->get()->map(function ($entry) {
+            $finalEntry = $entry->fileData();
+            $finalEntry['slug'] = $entry->slug;
 
-public static function testimonials()
-{
-    return (object) Entry::query()->whereCollection('testimonials')
-    ->get()->map(function($entry){
-        return $entry->fileData();
-    })->sort();
-}
+            return $finalEntry;
+        });
+    }
 
+    public static function service(string $slug)
+    {
+        return (object) Entry::query()->whereCollection('services')
+        ->where('slug', $slug)
+        ->get()->map(function ($entry) {
+            $finalEntry = $entry->fileData();
+            $finalEntry['slug'] = $entry->slug;
+
+            return $finalEntry;
+        })->first();
+    }
+
+    public static function partiners()
+    {
+        return (object) Entry::query()->whereCollection('partiners')
+        ->get()->map(function ($entry) {
+            return $entry->fileData();
+        });
+    }
+
+    public static function testimonials()
+    {
+        return (object) Entry::query()->whereCollection('testimonials')
+        ->get()->map(function ($entry) {
+            return $entry->fileData();
+        })->sort();
+    }
 }

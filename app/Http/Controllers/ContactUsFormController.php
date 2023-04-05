@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Statamic\Entries\Entry;
+use Inertia\Inertia;
+use Redirect;
 use Statamic\Facades\Form;
-use Statamic\Http\Resources\CP\Submissions\Submissions;
 
 class ContactUsFormController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function __invoke(Request $request)
@@ -21,13 +20,14 @@ class ContactUsFormController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
             'subject' => ['required', 'string'],
-            'messsage_content' => ['required', 'string']
+            'messsage_content' => ['required', 'string'],
         ]);
-      try {
-        $form = Form::find('contact_us');
-        $form->makeSubmission()->data($data)->save();
-      } catch (\Throwable $th) {
-         throw $th;
-      }
+        try {
+            $form = Form::find('contact_us');
+            $form->makeSubmission()->data($data)->save();
+            return Redirect::route('contact');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

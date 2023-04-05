@@ -99,7 +99,7 @@ return [
     'quality' => [
         'jpg' => 90,
         'webp' => 90,
-        'avif' => 45
+        'avif' => 45,
     ],
 
     /*

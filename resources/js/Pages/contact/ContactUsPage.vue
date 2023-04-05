@@ -13,7 +13,6 @@ const form = useForm({
 })
 
 
-
 </script>
 <template>
     <Head title="Contact Us" />
