@@ -2,11 +2,11 @@
 import PageHeaderVue from "../../components/PageHeader.vue";
 import PageFooterVue from "../../components/PageFooter.vue";
 import PageHero from "@/components/PageHero.vue";
-import Subscrib from "@/components/Subscrib.vue";
-import { Head, Link } from "@inertiajs/vue3";
+import {  Link } from "@inertiajs/vue3";
 import { PropType } from "vue";
 import { ServicePageInterface } from "@/types";
 import { Service } from "@/types/service";
+import MetaSeo from "@/components/MetaSeo.vue";
 
 const props = defineProps({
     servicePage: {
@@ -22,16 +22,25 @@ const props = defineProps({
 console.log(props.servicePage);
 </script>
 <template>
-    <Head :title="props.servicePage.page_title" />
+
+    <MetaSeo
+    :title="props.servicePage.page_title"
+    :description="props.servicePage.hero_title"
+    :image="props.servicePage.hero_backround_image"
+    type="Article"
+    />
+
     <div class="relative bg-slate-50">
         <PageHeaderVue class="sticky top-0 z-20" />
         <PageHero>
             <template v-slot:coverImage>
                 <picture>
                     <img
-                        :src="`${route('welcome')}/storage/${
-                            props.servicePage.hero_backround_image['src']
+                        :src="`${route('welcome')}/assets/${
+                            props.servicePage.hero_backround_image
                         }`"
+
+                        :alt="props.servicePage.page_title ?? ''"
                         class="w-full h-full object-cover hover:object-scale-down object-center"
                     />
                 </picture>
@@ -61,41 +70,42 @@ console.log(props.servicePage);
 
  <div
                     v-for="service in services"
-                    v-bind:key="service.id"
+                    v-bind:key="service.id??0"
                     class="px-1 md:px-4 my-4"
                 >
                     <div
                         class="w-full md:max-w-sm self-center md:mx-automy-10 dark:bg-gray-800 dark:border-gray-700 hover:bg-slate-200"
                     >
-                        <div
-                            class="bg-white text-justify hover:shadow-gray-300 hover:border-slate-700 hover:transition hover:duration-700 hover:ease-in-out hover:translate-x-6 hover:-translate-y-6"
+                        <article
+                            class="bg-white text-justify pb-6 hover:shadow-gray-300 hover:border-slate-700 hover:transition hover:duration-700 hover:ease-in-out hover:translate-x-6 hover:-translate-y-6"
                         >
                             <Link
                                 :href="route('service', {slug: service.slug})"
                             >
+                            <figure class="w-full">
                                 <img
                                     class="h-72 object-cover w-full"
-                                    :src="`${route('welcome')}/storage/${
-                                        service.cover['src']
+                                    :src="`${route('welcome')}/assets/${
+                                        service.cover
                                     }`"
-                                    alt=""
+                                    :alt="service.title ?? ''"
                                 />
+                            </figure>
                             </Link>
-                            <div class="p-5">
                                 <Link
                                     :href="route('service', {slug: service.slug})"
+
                                 >
                                     <h5
-                                        class="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white"
+                                        class="mb-2 px-7  pt-4 text-md font-bold tracking-tight text-gray-900 dark:text-white"
                                     >
                                         {{ service.title }}
                                     </h5>
-                                    <p class="">
+                                    <p class="line-clamp-6 px-7">
                                         {{ service.description }}
                                     </p>
                                 </Link>
-                            </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>

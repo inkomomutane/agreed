@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 use App\Helpers\Services;
 use Inertia\Inertia;
 use Statamic\Facades\GlobalSet;
-
+use Spatie\ResponsiveImages\Responsive;
 class HomePageController extends Controller
 {
     /**
      * Handle the incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function __invoke()
     {
-        $data = GlobalSet::findByHandle('home_page')->inDefaultSite()->fileData();
+        $data = \Statamic\Facades\GlobalSet::findByHandle('home_page')->inDefaultSite()->fileData();
+
+//        Responsive::make();
 
         return Inertia::render('home/HomePage', [
             'homePage' => (object) $data,

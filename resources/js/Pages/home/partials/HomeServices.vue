@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-slate-100 dark:bg-gray-900" v-show="services.length > 0">
+    <section class="bg-slate-100 dark:bg-gray-900" v-show="services != undefined && services.length > 0">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-sm text-center mb-8">
                 <h2
@@ -7,12 +7,7 @@
                 >
                     Logistic Services
                 </h2>
-                <p
-                    class="font-light text-gray-500 lg:mb-8 sm:text-xl dark:text-gray-400"
-                >
-                    Explore the whole collection of open-source web components
-                    and elements built with the utility classes from Tailwind
-                </p>
+
             </div>
 
             <swiper
@@ -39,31 +34,31 @@
                     v-bind:key="service.id"
                     class="px-1 md:px-4"
                 >
-                    <div
+                    <article
                         class="w-full md:max-w-sm self-center md:mx-auto bg-white my-10 dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-200 hover:border-gray-700"
                     >
                         <Link :href="route('service',{slug:service.slug})">
-                            <img
-                                class="h-72 object-cover w-full"
-                                :src="`${route('welcome')}/storage/${
-                                    service.cover['src']
-                                }`"
-                                :alt="service.title"
-                            />
+                            <figure>
+                                <img
+                                    class="h-72 object-cover w-full"
+                                    :src="`${route('welcome')}/assets/${
+                                        service.cover ?? ''
+                                    }`"
+                                    :alt="service.title?? ''"
+                                />
+                        </figure>
                         </Link>
-                        <div class="p-5 text-justify">
-                            <Link :href="route('service',{slug:service.slug})">
+                            <Link :href="route('service',{slug:service.slug})" class="p-5 text-justify">
                                 <h5
-                                    class="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white"
+                                    class="mb-2 px-7 pt-2 text-md capitalize font-bold tracking-tight text-gray-900 dark:text-white"
                                 >
                                     {{ service.title }}
                                 </h5>
-                                <p>
+                                <p class="line-clamp-6 px-7 text-justify">
                                     {{ service.description }}
                                 </p>
                             </Link>
-                        </div>
-                    </div>
+                    </article>
                 </swiper-slide>
             </swiper>
             <div class="text-center mt-4">
@@ -83,7 +78,7 @@ import { Pagination } from "swiper";
 defineProps({
     services: {
         type: Array as PropType<Service[]>,
-        required: true,
+        required: false,
     },
 });
 const modules = [Pagination];

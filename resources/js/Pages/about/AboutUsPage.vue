@@ -7,7 +7,7 @@ import { PropType } from 'vue';
 import { AboutUsPage } from '@/types';
 import { Testimonial } from "@/types/testimonials";
 import HomeTestmunial from '../home/partials/HomeTestmunial.vue';
-import Subscrib from '@/components/Subscrib.vue';
+import MetaSeo from '@/components/MetaSeo.vue';
 
 const props = defineProps({
     about:{
@@ -19,19 +19,22 @@ const props = defineProps({
     }
 })
 
-console.log(props);
-
 
 </script>
 <template>
-    <Head :title="about.page_title"/>
+    <MetaSeo
+    :title="about?.page_title"
+    :description="about?.hero_title"
+    :image="about?.hero_backround_image"
+    type="Article"
+    />
     <div class="relative bg-blue-50">
         <PageHeader class="sticky top-0 z-20" />
         <PageHero>
             <template v-slot:coverImage
                 ><img
-                :src="`${route('welcome')}/storage/${about.hero_backround_image['src']}`"
-                    alt="imageCoverAlt"
+                :src="`${route('welcome')}/assets/${about.hero_backround_image}`"
+                    :alt="about.hero_title??''"
                     class="w-full h-full object-cover hover:object-scale-down object-center"
             /></template>
             <template v-slot:content>
@@ -62,8 +65,8 @@ console.log(props);
                         <div class="grid grid-cols-1 gap-4 mt-8"  v-if="index%2!=0">
                                 <img
                                     class="w-full h-72 object-cover"
-                                    :src="`${route('welcome')}/storage/${section.section_image['src']}`"
-                                    :alt="section.section_title"
+                                    :src="`${route('welcome')}/assets/${section.section_image}`"
+                                    :alt="section.section_title??''"
                                 />
                             </div>
 
@@ -86,8 +89,8 @@ console.log(props);
                             <div class="grid grid-cols-1 gap-4 mt-8" v-if="index%2==0">
                                 <img
                                     class="w-full max-h-96 object-cover"
-                                    :src="`${route('welcome')}/storage/${section.section_image['src']}`"
-                                    :alt="section.section_title"
+                                    :src="`${route('welcome')}/assets/${section.section_image}`"
+                                    :alt="section.section_title?? ''"
                                 />
                             </div>
                         </div>

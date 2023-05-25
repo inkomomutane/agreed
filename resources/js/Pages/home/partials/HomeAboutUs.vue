@@ -1,10 +1,8 @@
 <script lang="ts" setup>
 defineProps({
     title:String,
-    subtitle:String,
     content:String,
     image:String,
-
 })
 </script>
 <template>
@@ -14,8 +12,6 @@ defineProps({
         <h1 class="py-2 mb-4 text-primary-400 text-xl font-extrabold tracking-tight md:text-2xl lg:text-2xl ">
            {{ title }}
         </h1>
-
-        <h4 class="py-2">{{ subtitle }}</h4>
 
         <p class="my-6">
          {{ content }}

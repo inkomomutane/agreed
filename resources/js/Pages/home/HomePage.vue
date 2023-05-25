@@ -8,12 +8,10 @@ import HomeAboutUs from "./partials/HomeAboutUs.vue";
 import HomePartners from "./partials/HomePartners.vue";
 import HomeServices from "./partials/HomeServices.vue";
 import HomeTestmunial from "./partials/HomeTestmunial.vue";
-import HomePageInterface from "@/types/index";
-
-import { Cloudinary } from "@cloudinary/url-gen";
+import HomePageInterface, { Logo } from "@/types/index";
 import { Service } from "@/types/service";
 import { Testimonial } from "@/types/testimonials";
-const cldInstance = new Cloudinary({ cloud: { cloudName: "dkvjdiyer" } });
+import MetaSeo from "@/components/MetaSeo.vue";
 
 const props = defineProps({
     homePage: {
@@ -28,25 +26,30 @@ const props = defineProps({
     },
     testimonials:{
         type: Array as PropType<Testimonial[]>
+    },
+    logo:{
+        type :Object as PropType<Logo>
     }
 
 });
 
-console.log(props.services);
 
-
-const fetchedImage = cldInstance.image("agreed/cover_spaqsi").toURL();
 </script>
 <template>
-    <Head :title="props.homePage.page_title" />
-
+    <MetaSeo
+    :title="props.homePage.page_title"
+    :description="props.homePage.short_about_us_content"
+    :image="logo?.agreed_logo"
+    type="Article"
+    />
     <div class="relative bg-blue-50">
         <PageHeader class="sticky top-0 z-20" />
         <PageHero>
             <template v-slot:coverImage
                 >
                 <picture>
-                    <img :src="`${route('welcome')}/storage/${homePage.hero_backround_image['src']}`"
+                    <img :src="`${route('welcome')}/assets/${homePage.hero_backround_image}`"
+                    :alt="homePage.hero_title ?? ''"
                     class="w-full h-full object-cover hover:object-scale-down object-center"/>
                 </picture>
                 </template>
@@ -92,9 +95,8 @@ const fetchedImage = cldInstance.image("agreed/cover_spaqsi").toURL();
 
         <HomeAboutUs
             :title="homePage.short_about_us_title"
-            :subtitle="`Content`"
             :content="homePage.short_about_us_content"
-            :image="`${route('welcome')}/storage/${homePage.short_about_us_image['src']}`"
+            :image="`${route('welcome')}/assets/${homePage.short_about_us_image}`"
         />
 
         <HomeServices :services="services ?? []" />

@@ -10,6 +10,7 @@ use App\Http\Controllers\TermsAndConditionsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Statamic\Eloquent\Globals\GlobalSet;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,10 @@ Route::get('/service/{slug}', SingleServicePageController::class)->name('service
 Route::get('/about-us', AboutUsController::class)->name('about');
 
 Route::get('/contact-us', function () {
-    return Inertia::render('contact/ContactUsPage');
+    $data = GlobalSet::findByHandle('contact_us_page')->inDefaultSite()->fileData();
+    return Inertia::render('contact/ContactUsPage',[
+        'contact' => (object) $data,
+    ]);
 })->name('contact');
 
 Route::get('/terms-and-conditions', TermsAndConditionsController::class)->name('terms');

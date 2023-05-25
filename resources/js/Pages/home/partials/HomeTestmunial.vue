@@ -74,10 +74,10 @@ const modules = [Pagination];
                             >
                                 <img
                                     class="w-9 h-9 rounded-full"
-                                    :src="`${route('welcome')}/storage/${
-                                        testimonial.image['src']
+                                    :src="`${route('welcome')}/assets/${
+                                        testimonial.image
                                     }`"
-                                    :alt="testimonial.title"
+                                    :alt="testimonial.title??''"
                                 />
                                 <div
                                     class="space-y-0.5 font-medium dark:text-white text-left"

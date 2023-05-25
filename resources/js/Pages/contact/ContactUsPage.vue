@@ -4,6 +4,20 @@ import PageHero from "@/components/PageHero.vue";
 import PageHeader from "@/components/PageHeader.vue";
 import PageFooter from "@/components/PageFooter.vue";
 import { useForm } from '@inertiajs/vue3'
+import { PropType } from "vue";
+import MetaSeo from "@/components/MetaSeo.vue";
+
+interface ContactPage{
+    title:string
+    cover:string,
+
+}
+const props = defineProps({
+    contact:{
+        type:Object as PropType<ContactPage>
+    },
+})
+
 
 const form = useForm({
   name: null,
@@ -15,14 +29,20 @@ const form = useForm({
 
 </script>
 <template>
-    <Head title="Contact Us" />
+    <MetaSeo
+    :title="contact?.title"
+    :description="contact?.title"
+    :image="contact?.cover"
+    type="Article"
+    />
+
     <div class="relative bg-blue-50">
         <PageHeader class="sticky top-0 z-20" />
         <PageHero :noOpacity="false" class="h-96">
             <template v-slot:coverImage>
                 <img
-                    src="@/assets/img/services.jpg"
-                    alt="imageCoverAlt"
+                    :src="route('welcome')+'/assets/' + props.contact?.cover ?? ''"
+                    :alt="props.contact?.title??''"
                     class="w-full h-full object-cover hover:object-scale-down object-center"
                 />
             </template>
@@ -46,7 +66,7 @@ const form = useForm({
                 <div class="bg-slate-100 text-justify p-20">
                     <div class="max-w-4xl mx-auto">
                         <img
-                            :src="`${route('welcome')}/storage/${
+                            :src="`${route('welcome')}/assets/${
                                 $page.props.logo.agreed_logo
                             }`"
                             alt="Agreed logistcs"

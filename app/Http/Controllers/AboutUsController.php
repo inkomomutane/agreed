@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Services;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Statamic\Eloquent\Globals\GlobalSet;
 
