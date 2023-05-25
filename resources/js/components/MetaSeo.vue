@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
-const props =  defineProps({
+defineProps({
     title:String,
     description:String,
     image:String,

@@ -9,7 +9,7 @@ import { Testimonial } from "@/types/testimonials";
 import HomeTestmunial from '../home/partials/HomeTestmunial.vue';
 import MetaSeo from '@/components/MetaSeo.vue';
 
-const props = defineProps({
+defineProps({
     about:{
         type:Object as PropType<AboutUsPage>,
             required:true
