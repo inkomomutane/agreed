@@ -81,14 +81,16 @@ import { Link } from '@inertiajs/vue3';
                             >
                                 <li class="mb-4">
                                     <a
-                                        href="https://fb.me/agreed"
+                                        :href="$page.props.copyright.linkedin??''"
+                                         target="_blank"
                                         class="hover:underline"
-                                        >Facebook</a
+                                        >Linkedin</a
                                     >
                                 </li>
                                 <li>
                                     <a
-                                        href="https://instagram.com/agreed"
+                                        :href="$page.props.copyright.instagram??''"
+                                        target="_blank"
                                         class="hover:underline"
                                         >Instagram</a
                                     >
@@ -135,6 +137,7 @@ import { Link } from '@inertiajs/vue3';
                 <a
                 aria-label="Linkedin"
                     :href="$page.props.copyright.linkedin ?? ''"
+                     target="_blank"
                     class="text-gray-100 text-xs hover:text-gray-400 dark:hover:text-white"
                 >
                 <svg  class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -144,6 +147,7 @@ import { Link } from '@inertiajs/vue3';
                 <a
                 aria-label="Instagram"
                     :href="$page.props.copyright.instagram ?? ''"
+                    target="_blank"
                     class="text-gray-100 hover:text-gray-400 dark:hover:text-white"
                 >
                     <svg
