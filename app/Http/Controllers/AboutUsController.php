@@ -17,7 +17,6 @@ class AboutUsController extends Controller
     public function __invoke()
     {
         $data = GlobalSet::findByHandle('about_us_page')->inDefaultSite()->fileData();
-
         return Inertia::render('about/AboutUsPage', [
             'about' => (object) $data,
             'partiners' => Services::partiners(),

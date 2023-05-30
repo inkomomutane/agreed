@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Services;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Spatie\Sitemap\Sitemap;
 
 class SingleServicePageController extends Controller
 {
@@ -17,6 +18,7 @@ class SingleServicePageController extends Controller
     public function __invoke(string $slug)
     {
         $data = Services::service($slug);
+
         if (is_null($data)) {
             abort(404);
         }
