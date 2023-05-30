@@ -50,7 +50,7 @@ class SiteMap extends Command
         foreach($slugs as $slug){
             $siteMap->add(
                 Url::create("service/{$slug->slug}")
-                ->addImage( !is_null($slug->cover) ? env('APP_URL') . "/assets/{$slug->cover}" : '' ,!is_null($slug->cover) ? $slug->slug : '')
+                ->addImage( !is_null($slug->cover) ? env('APP_URL') . "{$slug->cover}" : '' ,!is_null($slug->cover) ? $slug->slug : '')
         );
         }
         return $siteMap;
